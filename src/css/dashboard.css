@@ -1,0 +1,171 @@
+/* Additional Dashboard-specific styles */
+
+/* Bottle Status Variations */
+.bottle-card.present .card-icon {
+    animation: wiggle 0.5s ease-in-out;
+}
+
+.bottle-card.absent .card-value {
+    color: var(--accent-orange);
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+/* Temperature color coding */
+.temperature-card .card-value.hot {
+    color: #e53e3e;
+}
+
+.temperature-card .card-value.warm {
+    color: #dd6b20;
+}
+
+.temperature-card .card-value.normal {
+    color: #38a169;
+}
+
+.temperature-card .card-value.cool {
+    color: #3182ce;
+}
+
+/* Humidity color coding */
+.humidity-card .card-value.high {
+    color: #3182ce;
+}
+
+.humidity-card .card-value.normal {
+    color: #38a169;
+}
+
+.humidity-card .card-value.low {
+    color: #dd6b20;
+}
+
+/* Loading State */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Connection Status Animations */
+.status-indicator.connecting .status-dot {
+    background-color: #ecc94b;
+    animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Timer Warning States */
+.timer-container.warning .timer-display {
+    color: #dd6b20;
+}
+
+.timer-container.critical .timer-display {
+    color: #e53e3e;
+    animation: urgentPulse 0.5s infinite alternate;
+}
+
+@keyframes urgentPulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+/* Progress bar color states */
+.progress-bar.warning {
+    background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+}
+
+.progress-bar.critical {
+    background: linear-gradient(135deg, #fc8181 0%, #e53e3e 100%);
+}
+
+/* Notification Badge */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    background: #e53e3e;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* Smooth data transitions */
+.card-value {
+    transition: all 0.3s ease;
+}
+
+/* Chart Theme Compatibility */
+[data-theme="dark"] .chart-container canvas {
+    filter: brightness(0.95);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Focus States for Accessibility */
+button:focus,
+a:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .theme-toggle,
+    .alert-modal {
+        display: none !important;
+    }
+
+    .dashboard {
+        max-width: 100%;
+    }
+
+    .card {
+        break-inside: avoid;
+    }
+}

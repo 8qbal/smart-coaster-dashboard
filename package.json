@@ -1,0 +1,27 @@
+{
+  "name": "smart-coaster-dashboard",
+  "version": "1.0.0",
+  "description": "A real-time web dashboard for displaying sensor data from an ESP32-based Smart Coaster hydration reminder system.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build script not defined'",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "firebase": "^9.0.0",
+    "chart.js": "^3.0.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "keywords": [
+    "ESP32",
+    "dashboard",
+    "sensor",
+    "Firebase",
+    "real-time"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
