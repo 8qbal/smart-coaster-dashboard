@@ -5,7 +5,7 @@
   "main": "src/index.html",
   "scripts": {
     "start": "live-server src",
-    "build": "echo 'Build script not defined'",
+    "build": "echo 'Static site - no build required'",
     "deploy": "firebase deploy"
   },
   "dependencies": {
